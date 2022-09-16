@@ -8,56 +8,39 @@
 ~~~
 #!/bin/bash
 
-flag=/home/debian/flag.txt
-
-chattr +i flag
+flag="/home/debian/flag.txt"
+user="debian"
 
 dummy_functions=
-
 "
 
-function sudo () 
-{ 
-	exit
-}
+sudo(){ exit ; }
 
-function netcat ()
-{
-	exit
-}
+netcat(){ exit ; }
 
-function nc ()
-{
-	exit
-}
+nc(){ exit ; }
 
-function whoami
-{
-	exit
-}
+whoami(){ exit ; }
+
+curl(){ exit ; }
+
+wget() { exit ; }
+
+fetch(){ exit ; }
+
+ab(){ exit ; }
 
 " 
 
-dummy_chattr=
-
-"
-function chattr
-{
-	exit
-}
-
-"
-
-
-echo bash_functions >> /home/$user/.bashrc
-
+echo $dummy_functions >> /home/$user/.bashrc
 
 chattr +i /home/$user/.bashrc
-chattr +i /home/
+chattr +i $flag
 
 
-mv /bin/sudo /proc/3/lssu
-mv /bin/netcat /proc/3/xstat
-mv /bin/whoami /proc/3/itr
-mv /bin/chattr /proc/3/uconv
+mv /bin/sudo /bin/lssu
+
+mv /bin/netcat /dev/xcu1
+mv /bin/whoami /dev/xcu2
+mv /bin/chattr /dev/xcu3
 ~~~
