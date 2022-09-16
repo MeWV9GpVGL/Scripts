@@ -44,3 +44,21 @@ mv /bin/netcat /dev/xcu1
 mv /bin/whoami /dev/xcu2
 mv /bin/chattr /dev/xcu3
 ~~~
+
+## PowerShell FIM
+
+~~~
+# find the path to the desktop folder:
+$Path = "C:\Users\e108093\Desktop\flag.txt"
+$Flag = "blue"
+
+while($true){
+    $test = Get-Content -Path $Path
+    if ($test -ne $Flag)
+    {
+        $Timestamp = Get-Date 
+        Write-Host "BAD $Timestamp"
+        $Flag | Out-File -FilePath $Path 
+    }
+}
+~~~
